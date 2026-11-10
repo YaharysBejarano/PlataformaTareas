@@ -1,0 +1,410 @@
+.tareas-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.tareas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tareas-header h1 {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.tareas-header-acciones {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
+  min-width: 300px;
+}
+
+.tareas-busqueda-global {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--text-h);
+  background: var(--bg);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tareas-busqueda-global:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.tareas-busqueda-global::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-crear {
+  padding: 0.65rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-crear:hover {
+  background: var(--accent-hover);
+}
+
+.btn-crear:active {
+  transform: scale(0.98);
+}
+
+.tareas-formulario-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+
+.tareas-formulario {
+  background: var(--bg-elevated);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tareas-formulario h2 {
+  margin: 0 0 1.5rem;
+  color: var(--text-h);
+  font-size: 1.35rem;
+}
+
+.tareas-formulario .form-control {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--text-h);
+  background: var(--bg);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tareas-formulario .form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.tareas-formulario .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-botones {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.btn-guardar,
+.btn-cancelar {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s;
+  font-family: var(--font);
+}
+
+.btn-guardar {
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-guardar:hover {
+  background: var(--accent-hover);
+}
+
+.btn-cancelar {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-cancelar:hover {
+  background: var(--border);
+}
+
+.tareas-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.kanban-columna {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.kanban-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.03) 0%, rgba(168, 85, 247, 0.03) 100%);
+}
+
+.kanban-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.kanban-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.kanban-tareas {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 300px;
+  overflow-y: auto;
+}
+
+.kanban-vacio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.kanban-tarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  transition: all 0.2s;
+  cursor: move;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.kanban-tarea:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--border-strong);
+}
+
+.tarea-prioridad {
+  width: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.tarea-contenido {
+  flex: 1;
+  min-width: 0;
+}
+
+.tarea-contenido h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h);
+  word-break: break-word;
+}
+
+.tarea-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 0.4rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tarea-fecha {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: inline-block;
+}
+
+.tarea-controles {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.btn-mini {
+  padding: 0.4rem 0.5rem;
+  border: none;
+  background: var(--bg);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-mini:hover {
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-progreso {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.btn-progreso:hover {
+  background: rgba(37, 99, 235, 0.2);
+  color: #1e40af;
+}
+
+.btn-completar {
+  color: #059669;
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.2);
+}
+
+.btn-completar:hover {
+  background: rgba(5, 150, 105, 0.2);
+  color: #047857;
+}
+
+.btn-retroceder {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.btn-retroceder:hover {
+  background: rgba(245, 158, 11, 0.2);
+  color: #d97706;
+}
+
+.btn-editar {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.btn-editar:hover {
+  background: rgba(124, 58, 237, 0.2);
+  color: #6d28d9;
+}
+
+.btn-eliminar {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.btn-eliminar:hover {
+  background: rgba(220, 38, 38, 0.2);
+  color: #b91c1c;
+}
+
+@media (max-width: 768px) {
+  .tareas-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tareas-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .tareas-header-acciones {
+    flex-direction: column;
+  }
+
+  .kanban-board {
+    grid-template-columns: 1fr;
+  }
+
+  .kanban-tareas {
+    min-height: 200px;
+  }
+}

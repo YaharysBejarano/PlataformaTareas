@@ -1,0 +1,24 @@
+{
+  "name": "tutoring-platform-backend",
+  "version": "1.0.0",
+  "packageManager": "pnpm@11.5.0",
+  "description": "Backend API para plataforma de tutorías (Node, Express, Sequelize, MySQL)",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
+    "migrate:spanish": "node scripts/migrar-a-espanol.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.0",
+    "sequelize": "^6.37.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
